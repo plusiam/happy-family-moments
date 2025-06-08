@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✉️ 우리 가족, 행복한 순간 그리기 (v2.3 최종본)</title>
+    <title>✉️ 우리 가족, 행복한 순간 그리기 (v2.4 학습지개선)</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,19 @@
 
         @media print {
             /* '활동 결과 인쇄하기' 버튼 전용 스타일 */
-            .no-print, #activity-form, #printable-worksheet { display: none; }
+            .no-print, #activity-form, .printable-worksheet { display: none; }
             main { border: none; box-shadow: none; padding: 0; margin: 0; }
             #captureArea { display: block !important; }
+        }
+
+        .worksheet-page {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            padding: 20mm;
+            background: white;
+            box-sizing: border-box;
+            page-break-after: always;
         }
     </style>
 </head>
@@ -52,9 +62,103 @@
         </footer>
     </main>
 
-    <div id="printable-worksheet" class="hidden bg-white p-8 w-[210mm]">
-        <div class="text-center mb-10 border-b-2 pb-4"><h1 class="text-3xl font-bold text-gray-800">✉️ 우리 가족, 행복한 순간 그리기</h1><p class="text-gray-600 mt-2">이름: _______________</p></div>
-        <div class="space-y-12"><section><h2 class="text-xl font-bold text-gray-700 mb-3">🟡 도입: 생각 열기</h2><p class="mb-2"><b>Q.</b> 가족과 함께한 행복했던 순간이 있나요? (해당하는 곳에 O 표시 하세요)</p><p class="ml-4">□ 네 &nbsp;&nbsp;&nbsp;&nbsp; □ 아니요</p><p class="mt-4"><b>👉</b> 가장 기억에 남는 장면을 아래 말풍선에 적어 보세요!</p><div class="mt-2 ml-4 border rounded-xl p-4 h-24 bg-gray-50"></div></section><section><h2 class="text-xl font-bold text-gray-700 mb-3">🔵 활동1: 엽서로 표현해요</h2><p><b>Q.</b> 그 순간을 엽서로 만든다면 어떤 그림을 그리고 싶나요? 아래 네모 칸에 그리거나, 사진을 붙여보세요.</p><div class="w-full h-64 border-2 border-dashed my-4 flex items-center justify-center text-gray-400"><span>[ 그림을 그리거나 사진을 붙이는 곳 ]</span></div><p><b>💬</b> 엽서에 남기고 싶은 말을 자유롭게 적어보세요.</p><div class="mt-2 border-b border-gray-400 h-8"></div><div class="mt-2 border-b border-gray-400 h-8"></div><div class="mt-2 border-b border-gray-400 h-8"></div></section><section><h2 class="text-xl font-bold text-gray-700 mb-3">🔴 활동2: 공감 이름표 만들기</h2><p><b>Q.</b> 가족에게 어떤 말을 듣고, 어떤 말을 하고 싶나요? 아래 이름표를 채워보세요.</p><div class="mt-2 p-4 border rounded-lg bg-gray-50 space-y-3"><p><b>가족 이름:</b> _________________________</p><p><b>내가 듣고 싶은 말:</b> __________________________________________________</p><p><b>내가 하고 싶은 말:</b> __________________________________________________</p></div></section><section><h2 class="text-xl font-bold text-gray-700 mb-3">🟢 마무리: 감정 정리하기</h2><p><b>Q.</b> 오늘 활동을 마치며, 지금 내 기분은 어떤가요? 마음에 드는 기분에 O 표시하고 이유를 적어보세요.</p><div class="flex justify-around text-4xl my-4"><span>😊</span><span>😐</span><span>😢</span><span>😠</span><span>🙌</span></div><p><b>이유:</b> _________________________________________________________________</p></section></div>
+    <!-- 선생님용 학습지 페이지 1 -->
+    <div id="printable-worksheet-page1" class="printable-worksheet hidden worksheet-page">
+        <div class="text-center mb-8 border-b-2 pb-4">
+            <h1 class="text-2xl font-bold text-gray-800">✉️ 우리 가족, 행복한 순간 그리기</h1>
+            <p class="text-gray-600 mt-2">이름: _______________</p>
+        </div>
+        
+        <div class="space-y-8">
+            <section class="mb-8">
+                <h2 class="text-lg font-bold text-gray-700 mb-4">🟡 도입: 생각 열기</h2>
+                <p class="mb-3"><b>Q.</b> 가족과 함께한 행복했던 순간이 있나요? (해당하는 곳에 O 표시 하세요)</p>
+                <p class="ml-4 mb-6">□ 네 &nbsp;&nbsp;&nbsp;&nbsp; □ 아니요</p>
+                <p class="mb-2"><b>👉</b> 가장 기억에 남는 장면을 아래 말풍선에 적어 보세요!</p>
+                <div class="ml-4 border rounded-xl p-4 h-20 bg-gray-50 relative">
+                    <div class="absolute bottom-0 left-8 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[15px] border-t-gray-50"></div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-gray-700 mb-4">🔵 활동1: 엽서로 표현해요</h2>
+                <p class="mb-4"><b>Q.</b> 그 순간을 엽서로 만든다면 어떤 그림을 그리고 싶나요? 아래 네모 칸에 그리거나, 사진을 붙여보세요.</p>
+                <div class="w-full h-48 border-2 border-dashed border-gray-400 my-6 flex items-center justify-center text-gray-400 bg-gray-50">
+                    <span>[ 그림을 그리거나 사진을 붙이는 곳 ]</span>
+                </div>
+                <p class="mb-3"><b>💬</b> 엽서에 남기고 싶은 말을 자유롭게 적어보세요.</p>
+                <div class="space-y-3">
+                    <div class="border-b border-gray-400 h-6"></div>
+                    <div class="border-b border-gray-400 h-6"></div>
+                    <div class="border-b border-gray-400 h-6"></div>
+                    <div class="border-b border-gray-400 h-6"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 선생님용 학습지 페이지 2 -->
+    <div id="printable-worksheet-page2" class="printable-worksheet hidden worksheet-page">
+        <div class="text-center mb-8 border-b-2 pb-4">
+            <h1 class="text-2xl font-bold text-gray-800">✉️ 우리 가족, 행복한 순간 그리기</h1>
+            <p class="text-gray-600 mt-2">이름: _______________</p>
+        </div>
+        
+        <div class="space-y-8">
+            <section class="mb-10">
+                <h2 class="text-lg font-bold text-gray-700 mb-4">🔴 활동2: 공감 이름표 만들기</h2>
+                <p class="mb-4"><b>Q.</b> 가족에게 어떤 말을 듣고, 어떤 말을 하고 싶나요? 아래 이름표를 채워보세요.</p>
+                <div class="p-6 border-2 rounded-lg bg-gray-50 space-y-5">
+                    <div class="flex items-center">
+                        <span class="font-bold w-24">가족 이름:</span>
+                        <div class="flex-1 border-b border-gray-400 h-8"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="font-bold block">내가 듣고 싶은 말:</span>
+                        <div class="border-b border-gray-400 h-6"></div>
+                        <div class="border-b border-gray-400 h-6"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="font-bold block">내가 하고 싶은 말:</span>
+                        <div class="border-b border-gray-400 h-6"></div>
+                        <div class="border-b border-gray-400 h-6"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold text-gray-700 mb-4">🟢 마무리: 감정 정리하기</h2>
+                <p class="mb-4"><b>Q.</b> 오늘 활동을 마치며, 지금 내 기분은 어떤가요? 마음에 드는 기분에 O 표시하고 이유를 적어보세요.</p>
+                <div class="flex justify-around text-4xl my-6 py-4 border rounded-lg bg-gray-50">
+                    <div class="text-center">
+                        <div>😊</div>
+                        <div class="w-8 h-8 border border-gray-400 rounded-full mt-2 mx-auto"></div>
+                    </div>
+                    <div class="text-center">
+                        <div>😐</div>
+                        <div class="w-8 h-8 border border-gray-400 rounded-full mt-2 mx-auto"></div>
+                    </div>
+                    <div class="text-center">
+                        <div>😢</div>
+                        <div class="w-8 h-8 border border-gray-400 rounded-full mt-2 mx-auto"></div>
+                    </div>
+                    <div class="text-center">
+                        <div>😠</div>
+                        <div class="w-8 h-8 border border-gray-400 rounded-full mt-2 mx-auto"></div>
+                    </div>
+                    <div class="text-center">
+                        <div>🙌</div>
+                        <div class="w-8 h-8 border border-gray-400 rounded-full mt-2 mx-auto"></div>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <span class="font-bold">이유:</span>
+                    <div class="border-b border-gray-400 h-6"></div>
+                    <div class="border-b border-gray-400 h-6"></div>
+                    <div class="border-b border-gray-400 h-6"></div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script>
@@ -78,36 +182,63 @@
             resultPrintBtn.addEventListener('click',()=>window.print());
             resetBtn.addEventListener('click',()=>{confirm("정말로 모든 내용을 지우고 처음부터 다시 시작할까요? (저장된 내용도 삭제됩니다)")&&(form.reset(),localStorage.removeItem("family_activity_temp"),imagePreview.innerHTML="사진을 업로드 해주세요",updatePostcardPreview(),updateNametag(),updateReason(),emojis.forEach(e=>{e.setAttribute("aria-checked","false"),e.classList.remove("bg-amber-200")}),emojis.length>0&&(emojis[0].setAttribute("tabindex","0")),finalEmoji.textContent="?",showFeedback("모든 내용이 초기화되었습니다.",!0))});
             
-            // 선생님용 학습지 PDF 다운로드 기능
-            teacherPrintBtn.addEventListener('click', () => {
-                const worksheet = document.getElementById('printable-worksheet');
+            // 선생님용 학습지 2페이지 PDF 다운로드 기능
+            teacherPrintBtn.addEventListener('click', async () => {
+                const page1 = document.getElementById('printable-worksheet-page1');
+                const page2 = document.getElementById('printable-worksheet-page2');
                 showFeedback('PDF 생성 중... 잠시만 기다려주세요.', true);
 
-                // 캡처를 위해 잠시 보이게 하되, 화면에 영향을 주지 않도록 처리
-                worksheet.style.position = 'absolute';
-                worksheet.style.left = '-9999px';
-                worksheet.style.display = 'block';
+                try {
+                    // PDF 객체 생성
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = pdf.internal.pageSize.getHeight();
 
-                html2canvas(worksheet, { scale: 2, windowWidth: worksheet.scrollWidth, windowHeight: worksheet.scrollHeight })
-                    .then((canvas) => {
-                        const imgData = canvas.toDataURL('image/png');
-                        const pdf = new jsPDF('p', 'mm', 'a4');
-                        const pdfWidth = pdf.internal.pageSize.getWidth();
-                        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-                        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                        pdf.save('우리가족_행복한순간_학습지.pdf');
-                    })
-                    .catch(err => {
-                        showFeedback('⚠️ PDF 생성에 실패했습니다.', false);
-                        console.error(err);
-                    })
-                    .finally(() => {
-                        // 작업이 끝나면 다시 숨김
-                        worksheet.style.position = '';
-                        worksheet.style.left = '';
-                        worksheet.style.display = 'none';
-                        showFeedback('✅ PDF 파일이 다운로드되었습니다!', true);
-                    });
+                    // 캡처 옵션
+                    const captureOptions = {
+                        scale: 2,
+                        useCORS: true,
+                        windowWidth: 794, // A4 width in pixels (210mm)
+                        windowHeight: 1123, // A4 height in pixels (297mm)
+                        width: 794,
+                        height: 1123
+                    };
+
+                    // 페이지 1 캡처 및 PDF 추가
+                    page1.style.position = 'absolute';
+                    page1.style.left = '-9999px';
+                    page1.style.display = 'block';
+
+                    const canvas1 = await html2canvas(page1, captureOptions);
+                    const imgData1 = canvas1.toDataURL('image/png');
+                    pdf.addImage(imgData1, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+                    // 페이지 2 캡처 및 PDF 추가
+                    page2.style.position = 'absolute';
+                    page2.style.left = '-9999px';  
+                    page2.style.display = 'block';
+
+                    const canvas2 = await html2canvas(page2, captureOptions);
+                    const imgData2 = canvas2.toDataURL('image/png');
+                    pdf.addPage();
+                    pdf.addImage(imgData2, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+                    // PDF 저장
+                    pdf.save('우리가족_행복한순간_학습지.pdf');
+                    showFeedback('✅ 2페이지 PDF 파일이 다운로드되었습니다!', true);
+
+                } catch (err) {
+                    showFeedback('⚠️ PDF 생성에 실패했습니다.', false);
+                    console.error(err);
+                } finally {
+                    // 작업이 끝나면 다시 숨김
+                    page1.style.position = '';
+                    page1.style.left = '';
+                    page1.style.display = 'none';
+                    page2.style.position = '';
+                    page2.style.left = '';
+                    page2.style.display = 'none';
+                }
             });
             
             // --- 초기화 ---
